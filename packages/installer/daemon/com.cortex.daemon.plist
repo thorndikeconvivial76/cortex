@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <!-- Service identity -->
+  <key>Label</key>
+  <string>com.cortex.daemon</string>
+
+  <!-- Command to run -->
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/local/bin/cortex</string>
+    <string>server</string>
+    <string>--daemon</string>
+  </array>
+
+  <!-- Start on login -->
+  <key>RunAtLoad</key>
+  <true/>
+
+  <!-- Restart on crash (but not on clean exit) -->
+  <key>KeepAlive</key>
+  <dict>
+    <key>SuccessfulExit</key>
+    <false/>
+  </dict>
+
+  <!-- Minimum seconds between restarts -->
+  <key>ThrottleInterval</key>
+  <integer>5</integer>
+
+  <!-- Working directory -->
+  <!-- NOTE: __HOME__ is a template placeholder. The install script must replace
+       it with the actual home directory path using sed before copying to
+       ~/Library/LaunchAgents/. launchd does not support variable substitution. -->
+  <key>WorkingDirectory</key>
+  <string>__HOME__/.cortex</string>
+
+  <!-- Logging -->
+  <key>StandardOutPath</key>
+  <string>__HOME__/.cortex/logs/daemon.log</string>
+  <key>StandardErrorPath</key>
+  <string>__HOME__/.cortex/logs/error.log</string>
+
+  <!-- Environment -->
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>CORTEX_PORT</key>
+    <string>7434</string>
+    <key>HOME</key>
+    <string>__HOME__</string>
+  </dict>
+</dict>
+</plist>

@@ -1,0 +1,75 @@
+{
+  "name": "@cortex/server",
+  "version": "1.0.0",
+  "description": "Cortex daemon — MCP server, REST API, SQLite, sync, summarizer",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "cortex-server": "./dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "publishConfig": {
+    "name": "@cortex-memory/server",
+    "access": "public"
+  },
+  "author": "K2N2 Studio <koundinya@k2n2studio.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ProductionLineHQ/cortex"
+  },
+  "homepage": "https://cortex.sh",
+  "bugs": {
+    "url": "https://github.com/ProductionLineHQ/cortex/issues"
+  },
+  "keywords": [
+    "claude-code",
+    "memory",
+    "mcp",
+    "ai",
+    "persistent-memory",
+    "cortex"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean --external better-sqlite3",
+    "dev": "tsup src/index.ts --format esm --dts --watch --external better-sqlite3",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.80.0",
+    "@cortex/shared": "workspace:*",
+    "@fastify/cors": "^11.2.0",
+    "@fastify/rate-limit": "^10.2.0",
+    "@libsql/client": "^0.17.2",
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "better-sqlite3": "^11.0.0",
+    "fastify": "^5.8.2",
+    "openai": "^6.32.0",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.0",
+    "@types/uuid": "^10.0.0",
+    "@vitest/coverage-v8": "^1.6.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.6.0"
+  }
+}

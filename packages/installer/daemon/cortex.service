@@ -1,0 +1,26 @@
+[Unit]
+Description=Cortex Memory Daemon — Persistent Memory for Claude Code
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/cortex server --daemon
+Restart=on-failure
+RestartSec=5
+WorkingDirectory=%h/.cortex
+Environment=CORTEX_PORT=7434
+Environment=HOME=%h
+
+# Logging goes to systemd journal
+# View with: journalctl --user -u cortex -f
+StandardOutput=journal
+StandardError=journal
+
+# Security hardening
+PrivateTmp=yes
+NoNewPrivileges=yes
+ProtectSystem=strict
+ReadWritePaths=%h/.cortex
+
+[Install]
+WantedBy=default.target

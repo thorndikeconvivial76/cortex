@@ -1,0 +1,14 @@
+{
+  "name": "@cortex/installer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cortex installer — Homebrew, npx, curl, daemon configs",
+  "scripts": {
+    "test:install": "bash install.sh --dry-run"
+  },
+  "files": [
+    "install.sh",
+    "daemon/",
+    "homebrew/"
+  ]
+}

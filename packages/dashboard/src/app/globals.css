@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:wght@300;700;900&display=swap');
+
+:root {
+  --bg: #0A0A0F;
+  --bg2: #111118;
+  --bg3: #1A1A24;
+  --surface: #16161F;
+  --surface2: #1E1E2A;
+  --border: rgba(255,255,255,0.06);
+  --border2: rgba(255,255,255,0.10);
+  --text: #F0EEF8;
+  --text2: #9B98B0;
+  --text3: #5C5970;
+  --accent: #7C6FE0;
+  --accent2: #A99CFF;
+  --accent3: #C4BAFF;
+  --green: #34D399;
+  --green-dim: rgba(52,211,153,0.12);
+  --amber: #FBBF24;
+  --amber-dim: rgba(251,191,36,0.10);
+  --red: #F87171;
+  --indigo: #818CF8;
+  --teal: #2DD4BF;
+}
+
+.light {
+  --bg: #F4F2FF;
+  --bg2: #EBE8FF;
+  --bg3: #DDD9FF;
+  --surface: #FFFFFF;
+  --surface2: #F7F5FF;
+  --border: rgba(100,80,200,0.10);
+  --border2: rgba(100,80,200,0.18);
+  --text: #1A1830;
+  --text2: #5048A0;
+  --text3: #9B94CC;
+  --accent: #5B4FD4;
+  --accent2: #7B6FE8;
+  --accent3: #9B8FFF;
+  --green: #059669;
+  --green-dim: rgba(5,150,105,0.10);
+  --amber: #D97706;
+  --amber-dim: rgba(217,119,6,0.10);
+  --red: #DC2626;
+  --indigo: #4F46E5;
+  --teal: #0D9488;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}

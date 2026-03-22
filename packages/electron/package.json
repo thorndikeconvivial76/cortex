@@ -1,0 +1,73 @@
+{
+  "name": "@cortex/electron",
+  "version": "1.0.0",
+  "description": "Cortex Desktop — Electron wrapper for the dashboard",
+  "private": true,
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux"
+  },
+  "build": {
+    "appId": "sh.cortex.desktop",
+    "productName": "Cortex",
+    "copyright": "Copyright 2026 K2N2 Studio",
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "assets/icon.icns",
+      "target": ["dmg", "zip"],
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "entitlements.mac.plist",
+      "entitlementsInherit": "entitlements.mac.plist",
+      "notarize": {
+        "teamId": "${APPLE_TEAM_ID}"
+      }
+    },
+    "dmg": {
+      "background": "assets/dmg-background.png",
+      "iconSize": 80,
+      "contents": [
+        { "x": 130, "y": 220 },
+        { "x": 410, "y": 220, "type": "link", "path": "/Applications" }
+      ]
+    },
+    "win": {
+      "target": ["nsis"],
+      "icon": "assets/icon.ico",
+      "certificateSubjectName": "K2N2 Studio"
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "icon": "assets/icon.png",
+      "category": "Development",
+      "desktop": {
+        "Name": "Cortex",
+        "Comment": "Persistent Memory for Claude Code"
+      }
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "ProductionLineHQ",
+      "repo": "cortex"
+    }
+  },
+  "dependencies": {
+    "electron-updater": "^6.2.0"
+  },
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-builder": "^24.13.0"
+  }
+}

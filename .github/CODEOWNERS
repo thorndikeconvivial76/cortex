@@ -1,0 +1,13 @@
+# Default owner for everything
+* @koundinyalanka
+
+# Package-specific ownership
+packages/server/ @koundinyalanka
+packages/cli/ @koundinyalanka
+packages/dashboard/ @koundinyalanka
+packages/web/ @koundinyalanka
+packages/desktop/ @koundinyalanka
+packages/vscode/ @koundinyalanka
+packages/shared/ @koundinyalanka
+packages/installer/ @koundinyalanka
+packages/electron/ @koundinyalanka

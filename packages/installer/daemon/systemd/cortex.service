@@ -1,0 +1,15 @@
+[Unit]
+Description=Cortex Memory Daemon
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/cortex server --daemon
+Restart=on-failure
+RestartSec=5
+StandardOutput=append:%h/.cortex/logs/daemon.log
+StandardError=append:%h/.cortex/logs/error.log
+Environment=HOME=%h
+
+[Install]
+WantedBy=default.target

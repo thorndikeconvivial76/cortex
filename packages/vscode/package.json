@@ -1,0 +1,94 @@
+{
+  "name": "cortex-memory",
+  "displayName": "Cortex — Memory for Claude Code",
+  "description": "Persistent memory layer for Claude Code. Save, search, and browse memories from VS Code.",
+  "version": "1.0.0",
+  "publisher": "k2n2studio",
+  "license": "MIT",
+  "author": "K2N2 Studio",
+  "icon": "assets/icon.png",
+  "galleryBanner": {
+    "color": "#0A0A0F",
+    "theme": "dark"
+  },
+  "badges": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ProductionLineHQ/cortex"
+  },
+  "homepage": "https://cortex.sh",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cortex.saveMemory",
+        "title": "Save to Cortex Memory",
+        "category": "Cortex"
+      },
+      {
+        "command": "cortex.searchMemories",
+        "title": "Search Memories",
+        "category": "Cortex"
+      },
+      {
+        "command": "cortex.showStatus",
+        "title": "Show Status",
+        "category": "Cortex"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "cortex.saveMemory",
+          "when": "editorHasSelection",
+          "group": "cortex"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "cortex.saveMemory",
+        "key": "ctrl+shift+m",
+        "mac": "cmd+shift+m",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "cortex.searchMemories",
+        "key": "ctrl+shift+f9",
+        "mac": "cmd+shift+f9"
+      }
+    ],
+    "configuration": {
+      "title": "Cortex",
+      "properties": {
+        "cortex.daemonPort": {
+          "type": "number",
+          "default": 7434,
+          "description": "Port of the Cortex daemon"
+        },
+        "cortex.autoStart": {
+          "type": "boolean",
+          "default": false,
+          "description": "Auto-start daemon if not running"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
+    "watch": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node --watch",
+    "package": "vsce package",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.21.0",
+    "typescript": "^5.4.0"
+  }
+}

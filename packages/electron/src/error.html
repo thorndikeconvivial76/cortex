@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cortex — Offline</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0A0A0F;
+  color: #F0EEF8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  -webkit-app-region: drag;
+}
+.container {
+  text-align: center;
+  max-width: 400px;
+  padding: 40px;
+  -webkit-app-region: no-drag;
+}
+.logo { font-size: 48px; margin-bottom: 24px; }
+h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+p { font-size: 14px; color: #9B98B0; line-height: 1.6; margin-bottom: 24px; }
+.btn {
+  display: inline-block; padding: 12px 28px;
+  background: #7C6FE0; color: white;
+  border: none; border-radius: 8px;
+  font-size: 14px; font-weight: 600;
+  cursor: pointer; text-decoration: none;
+  transition: background 0.2s;
+}
+.btn:hover { background: #A99CFF; }
+.link {
+  display: block; margin-top: 16px;
+  font-size: 12px; color: #5C5970;
+  text-decoration: underline; cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="logo">C●rtex</div>
+  <h1>Cortex is offline</h1>
+  <p>The Cortex daemon is not running. Start it to access the dashboard.</p>
+  <button class="btn" onclick="startDaemon()">Start Cortex</button>
+  <a class="link" onclick="openLogs()">View logs</a>
+</div>
+<script>
+function startDaemon() {
+  const { exec } = require('child_process');
+  document.querySelector('.btn').textContent = 'Starting...';
+  exec('cortex init', (err) => {
+    if (err) {
+      document.querySelector('.btn').textContent = 'Failed — Try Again';
+    } else {
+      setTimeout(() => window.location.reload(), 2000);
+    }
+  });
+}
+function openLogs() {
+  const { shell } = require('electron');
+  const os = require('os');
+  const path = require('path');
+  shell.openPath(path.join(os.homedir(), '.cortex', 'logs'));
+}
+</script>
+</body>
+</html>

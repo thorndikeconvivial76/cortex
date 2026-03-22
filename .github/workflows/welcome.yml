@@ -1,0 +1,45 @@
+name: Welcome New Contributors
+
+on:
+  pull_request_target:
+    types: [opened]
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+          issue-message: |
+            Welcome to Cortex! Thanks for opening your first issue.
+
+            Here are a few things that might help:
+            - Check the [README](https://github.com/ProductionLineHQ/cortex#readme) for setup instructions
+            - Run `cortex doctor --verbose` and include the output if you're reporting a bug
+            - Browse [existing discussions](https://github.com/ProductionLineHQ/cortex/discussions) for ideas and Q&A
+
+            A maintainer will review this soon. We appreciate your contribution to making AI assistants smarter!
+
+          pr-message: |
+            Welcome to Cortex! Thanks for your first pull request.
+
+            Here's what happens next:
+            1. CI will run tests, linting, and type checks automatically
+            2. A maintainer will review your changes
+            3. We may suggest some modifications or improvements
+            4. Once approved, we'll merge it in
+
+            **Checklist reminder:**
+            - [ ] Tests pass (`pnpm test`)
+            - [ ] Lint passes (`pnpm lint`)
+            - [ ] Types check (`pnpm typecheck`)
+
+            Thanks for helping make Cortex better! Every contribution matters.

@@ -1,0 +1,58 @@
+title: "Ideas & Feature Brainstorming"
+labels:
+  - idea
+  - discussion
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Got an idea for Cortex?** We'd love to hear it.
+
+        Whether it's a new feature, an integration, or a workflow improvement — share your thoughts and let the community weigh in.
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: "The Idea"
+      description: "Describe your idea in a few sentences."
+      placeholder: "What if Cortex could..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: "What problem does this solve?"
+      description: "What pain point or gap does this address?"
+      placeholder: "Currently, when I work with Claude Code, I have to..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: "Scope"
+      description: "How big is this idea?"
+      options:
+        - "Small tweak (CLI flag, config option)"
+        - "Medium feature (new command, dashboard widget)"
+        - "Large feature (new package, major integration)"
+        - "Architectural change"
+    validations:
+      required: true
+
+  - type: textarea
+    id: prior-art
+    attributes:
+      label: "Prior Art / Inspiration"
+      description: "Have you seen this done well elsewhere? Links welcome."
+      placeholder: "I saw something similar in..."
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: "Would you help build this?"
+      options:
+        - label: "I'd be willing to submit a PR for this"
+        - label: "I can help test or provide feedback"
+        - label: "I'm sharing the idea for others to pick up"

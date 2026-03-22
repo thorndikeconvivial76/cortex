@@ -1,0 +1,61 @@
+{
+  "name": "@cortex/shared",
+  "version": "1.0.0",
+  "description": "Shared types, schemas, constants, and utilities for Cortex",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "publishConfig": {
+    "name": "@cortex-memory/shared",
+    "access": "public"
+  },
+  "author": "K2N2 Studio <koundinya@k2n2studio.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ProductionLineHQ/cortex"
+  },
+  "homepage": "https://cortex.sh",
+  "bugs": {
+    "url": "https://github.com/ProductionLineHQ/cortex/issues"
+  },
+  "keywords": [
+    "claude-code",
+    "memory",
+    "mcp",
+    "ai",
+    "persistent-memory",
+    "cortex"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "dev": "tsup src/index.ts --format esm --dts --watch",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.6.0",
+    "@vitest/coverage-v8": "^1.6.0"
+  }
+}
