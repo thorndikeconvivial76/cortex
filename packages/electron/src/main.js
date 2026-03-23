@@ -215,7 +215,7 @@ async function startDaemon() {
     const serverPaths = [
       path.join(os.homedir(), '.cortex', 'node_modules', '.bin', 'cortex-server'),
       'cortex-server',
-      'npx @cortex-memory/server',
+      'npx @cortex.memory/server',
     ];
 
     // Use the daemon start approach — the server package
