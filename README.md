@@ -4,10 +4,17 @@
 
 **Every time you open Claude Code, it forgets everything. Cortex fixes that.**
 
+<p align="center">
+  <a href="https://www.theproductionline.ai/tools/cortex"><strong>🌐 Product Page & Docs</strong></a> &nbsp;·&nbsp;
+  <a href="https://www.theproductionline.ai/tools/cortex"><strong>📥 Get Cortex (Free)</strong></a> &nbsp;·&nbsp;
+  <a href="https://www.npmjs.com/package/@cortex.memory/cli"><strong>📦 npm</strong></a>
+</p>
+
 [![npm version](https://img.shields.io/npm/v/@cortex.memory/cli?color=cb3837&label=npm)](https://www.npmjs.com/package/@cortex.memory/cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/ProductionLineHQ/cortex?style=social)](https://github.com/ProductionLineHQ/cortex)
 [![CI](https://img.shields.io/github/actions/workflow/status/ProductionLineHQ/cortex/ci.yml?label=CI)](https://github.com/ProductionLineHQ/cortex/actions)
+[![Website](https://img.shields.io/badge/Website-theproductionline.ai-7C6FE0)](https://www.theproductionline.ai/tools/cortex)
 
 <p align="center">
   <img src="assets/cortex-hero.png" alt="Cortex — Claude Code finally remembers" width="100%">
