@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+# Mock cortex CLI for demo recording
+
+case "$1" in
+  init)
+    sleep 0.3
+    echo ""
+    echo "  ✓ Cortex v1.0.0 installed"
+    echo "  ✓ Daemon started (PID 48291)"
+    echo "  ✓ MCP server registered with Claude Code"
+    echo "  ✓ Database created (~/.cortex/cortex.db)"
+    echo ""
+    echo "  Cortex is ready. Open Claude Code — it will remember."
+    echo ""
+    ;;
+  status)
+    sleep 0.3
+    echo ""
+    echo "  Daemon:     running (PID 48291, uptime 3d 14h)"
+    echo "  MCP Server: localhost:7434 (5 tools)"
+    echo "  Dashboard:  localhost:7433"
+    echo "  Database:   ~/.cortex/cortex.db (2.1 MB)"
+    echo ""
+    echo "  Projects:"
+    echo "    my-saas-app       89 memories (active)"
+    echo "    cortex            34 memories"
+    echo "    infra-scripts     12 memories"
+    echo "    Total:           135 memories across 3 projects"
+    echo ""
+    ;;
+  show)
+    sleep 0.3
+    echo ""
+    echo "  # Decision memories for my-saas-app (showing 4 of 23)"
+    echo ""
+    echo "  [1] importance:9  2025-03-18  #database #orm"
+    echo "      Using Drizzle ORM — better edge runtime support, no binary dep"
+    echo ""
+    echo "  [2] importance:8  2025-03-17  #react #architecture"
+    echo "      Server components by default, use client only for state/effects"
+    echo ""
+    echo "  [3] importance:8  2025-03-16  #auth"
+    echo "      Clerk for auth, Supabase for DB only — no Supabase auth/storage"
+    echo ""
+    echo "  [4] importance:7  2025-03-15  #styling"
+    echo "      Tailwind 4 + CVA for component variants, no CSS modules"
+    echo ""
+    ;;
+  search)
+    sleep 0.3
+    echo ""
+    echo "  Found 2 matches across 1 project:"
+    echo ""
+    echo "  [my-saas-app] thread (importance:7)"
+    echo "    WebSocket drops after 100s — suspect Cloudflare proxy timeout"
+    echo ""
+    echo "  [my-saas-app] error (importance:6)"
+    echo "    Reconnection loop when server restarts during active WS session"
+    echo ""
+    ;;
+esac
