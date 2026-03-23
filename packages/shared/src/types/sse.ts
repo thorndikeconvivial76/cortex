@@ -102,6 +102,11 @@ export interface SSESyncError {
   data: { code: string; message: string };
 }
 
+export interface SSESyncOffline {
+  type: 'sync.offline';
+  data: { offlineCount: number; latency_ms: number };
+}
+
 export interface SSEDaemonError {
   type: 'daemon.error';
   data: { code: string; message: string };
@@ -122,6 +127,7 @@ export type SSEEvent =
   | SSERateLimitWarning
   | SSEReviewReminder
   | SSESyncError
+  | SSESyncOffline
   | SSEDaemonError;
 
 /**

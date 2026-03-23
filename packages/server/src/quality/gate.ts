@@ -100,10 +100,10 @@ export function runQualityGate(
     .prepare(
       'SELECT content FROM memories WHERE project_id = ? AND deleted_at IS NULL AND superseded_by IS NULL',
     )
-    .all(projectId)
-    .map((r: { content: string }) => r.content);
+    .all(projectId) as { content: string }[];
+  const existingTexts = existingContents.map((r) => r.content);
 
-  const duplicateResult = checkDuplicate(input.content, existingContents);
+  const duplicateResult = checkDuplicate(input.content, existingTexts);
   if (!duplicateResult.passed) {
     return {
       passed: false,

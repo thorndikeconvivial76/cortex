@@ -95,6 +95,16 @@ export function registerMemoryRoutes(
       });
     }
 
+    // Auto-create project if it doesn't exist
+    const existingProject = db.prepare('SELECT id FROM projects WHERE id = ?').get(project_id);
+    if (!existingProject) {
+      const { v4: projUuid } = await import('uuid');
+      db.prepare(
+        `INSERT OR IGNORE INTO projects (id, name, path, git_remote, tech_stack, context_budget, memory_limit, created_at, last_session_at)
+         VALUES (?, ?, NULL, NULL, '[]', 4000, 500, strftime('%Y-%m-%dT%H:%M:%fZ', 'now'), strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`,
+      ).run(project_id, project_id);
+    }
+
     // Quality gate
     const gateResult = runQualityGate(parsed.data, db, project_id);
     if (!gateResult.passed) {
