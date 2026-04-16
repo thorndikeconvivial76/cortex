@@ -1,6 +1,0 @@
-#!/usr/bin/env sh
-
-# Setup: pnpm add -D -w @commitlint/config-conventional @commitlint/cli husky
-# Then:  npx husky init && cp this file to .husky/commit-msg && chmod +x .husky/commit-msg
-
-npx --no -- commitlint --edit "$1"
